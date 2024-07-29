@@ -94,7 +94,7 @@ const Portfolio = () => {
       <section id="about" className="bg-white/5 py-20">
         <div className="container mx-auto px-6">
           <h3 className="text-3xl font-bold mb-8 text-center">About Me</h3>
-          <div className="bg-white/10 backdrop-blur-md rounded-xl p-8 shadow-lg">
+          <div className="bg-white/10 backdrop-blur-md rounded-xl p-8 shadow-lg transform transition duration-500 hover:scale-105">
             <p className="text-lg leading-loose py-5 px-5">
               As a Software Engineer at ConcertCare Private Limited, I specialize in front-end development using cutting-edge technologies like ReactJS, React Native, and Flutter. My passion lies in creating intuitive and performant user interfaces, bridging the gap between complex functionality and seamless user experiences. I'm committed to responsive web design, cross-platform mobile development, and implementing efficient state management solutions to drive innovation within our organization.
             </p>
