@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+import { FaAppStore } from 'react-icons/fa';
 
 const Portfolio = () => {
   var projectDetails = [
@@ -28,6 +29,23 @@ const Portfolio = () => {
       myrole: "Worked on upgrading the React Native library",
       describe: "BudGab is about coming together, connecting with others who have common interests, sharing your day-to-day experiences with posts, photos, videos and stories, highlighting moments with a few close friends or the entire BudGab community.",
       detailDescription: "Learn and share about Cannabis wellness, stay up to date with lifestyle news, and hear about the latest in the industry. \n\n BudGab is the outlet for brands and vendors to promote themselves, the source for consumers to learn about them and locate nearby locations for medical or recreational use anywhere cannabis is regulated."
+    }, {
+      id: 4,
+      name: "URLane",
+      logoURL: "https://play-lh.googleusercontent.com/b3vEAw6J0OBBNQ6FdAmmzuwQUGdB0xyt1XAxJsnu5OaQ5wYNvybUo28B84RyDbtjAMc=w240-h480-rw",
+      playstorelink: "https://play.google.com/store/apps/details?id=com.app.gobox",
+      myrole: "Worked as a Front-End Developer",
+      describe: "URLane offers a comprehensive solution for navigating urban environments and staying connected with friends, family, and optimized tracking. Here's a breakdown of the features and functionalities provided:",
+      detailDescription: "Navigation and Connectivity: URLane addresses the challenges of moving between places by allowing users to create, access, and share routes. This facilitates easier connections with friends and family."
+    },
+    {
+      id: 5,
+      name: "Aggmaps",
+      logoURL: "",
+      playstorelink: "",
+      myrole: "Worked as a Front-End Developer",
+      describe: "AggMaps is the best way to find all types of dirt and aggregates, find dumps for construction waste, and post and find jobs that have and need dirt.",
+      detailDescription: "AggMaps is the best way to find all types of dirt and aggregates, find dumps for construction waste, and post and find jobs that have and need dirt."
     },
   ];
   return (
@@ -35,10 +53,11 @@ const Portfolio = () => {
       {/* Header */}
       <header className="sticky top-0 z-50 backdrop-blur-md bg-slate-700">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">YC</h1>
+          <img src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHXhO4Pt9P_Usx3dsB6Oz6lSiXHU3enwIbAw&s"} alt={"office logo"} className="w-20 h-20 rounded-lg mr-6" />
+          {/* <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">YC</h1> */}
           <nav>
             <ul className="flex space-x-6">
-              {['About', 'Experience', 'Skills', 'Projects', 'Contact'].map((item) => (
+              {['About', 'Projects', 'Experience', 'Skills', 'Contact'].map((item) => (
                 <li key={item}>
                   <a href={`#${item.toLowerCase()}`} className="hover:text-purple-300 transition duration-300 ease-in-out">
                     {item}
@@ -73,12 +92,69 @@ const Portfolio = () => {
 
       {/* About Section */}
       <section id="about" className="bg-white/5 py-20">
-        <div className="mx-52 px-6">
+        <div className="container mx-auto px-6">
           <h3 className="text-3xl font-bold mb-8 text-center">About Me</h3>
           <div className="bg-white/10 backdrop-blur-md rounded-xl p-8 shadow-lg">
             <p className="text-lg leading-loose py-5 px-5">
               As a Software Engineer at ConcertCare Private Limited, I specialize in front-end development using cutting-edge technologies like ReactJS, React Native, and Flutter. My passion lies in creating intuitive and performant user interfaces, bridging the gap between complex functionality and seamless user experiences. I'm committed to responsive web design, cross-platform mobile development, and implementing efficient state management solutions to drive innovation within our organization.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-20 ">
+        <div className="container mx-auto px-6">
+          <h3 className="text-4xl font-extrabold mb-12 text-center text-white">Featured Projects at ConcertCare</h3>
+          <div className="grid md:grid-cols-2 gap-12">
+            {projectDetails.map((project) => (
+              <div
+                key={project.name}
+                className="bg-white/10 backdrop-blur-lg rounded-xl overflow-hidden shadow-lg transform transition duration-500 hover:scale-105"
+              >
+                <div className="p-8 flex flex-col h-full">
+                  <div className="flex items-center mb-6">
+                    {project.logoURL ? (
+                      <img src={project.logoURL} alt={project.name} className="w-16 h-16 rounded-full mr-6" />
+                    ) : (
+                      <FaAppStore className="w-16 h-16 rounded-full mr-6 text-white" />
+                    )}
+
+                    <h4 className="text-2xl font-bold text-white">{project.name}</h4>
+                  </div>
+                  <p className="text-gray-300 mb-6 flex-grow">{project.describe}</p>
+                  <div className="mb-6">
+                    <span className="font-semibold text-white">My Role:</span>
+                    <span className="text-gray-300 ml-2">{project.myrole}</span>
+                  </div>
+                  {project.playstorelink && <div className='flex'>
+                    <a 
+                      href={project.playstorelink}
+                      target="_blank"
+                      rel="noopener noreferrer" 
+                      className="inline-block underline bg-gray-500 hover:bg-gray-600 text-violet-600 font-bold py-3 px-5 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                    >
+                      View on Play Store
+                    </a>
+                  </div>}
+
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="bg-white/5 py-20">
+        <div className="container mx-auto px-6">
+          <h3 className="text-3xl font-bold mb-8 text-center">Skills</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {['ReactJS', 'React Native', 'Flutter', 'JavaScript', "NodeJS", 'Redux', 'Git', 'bitbucket', 'Github Desktop', 'Agile', 'UI/UX Design', 'RESTful APIs'].map((skill, index) => (
+              <div key={index} className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-4 text-center shadow-lg transform transition duration-500 hover:scale-110 hover:rotate-3">
+                <p className="text-lg font-semibold">{skill}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -100,58 +176,6 @@ const Portfolio = () => {
                 <li>Contribute to team projects and mentor junior developers</li>
               </ul>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Skills Section */}
-      <section id="skills" className="bg-white/5 py-20">
-        <div className="container mx-auto px-6">
-          <h3 className="text-3xl font-bold mb-8 text-center">Skills</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {['ReactJS', 'React Native', 'Flutter', 'JavaScript', 'HTML5', 'CSS3', 'Redux', 'Git', 'Agile', 'UI/UX Design', 'RESTful APIs'].map((skill, index) => (
-              <div key={index} className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-4 text-center shadow-lg transform transition duration-500 hover:scale-110 hover:rotate-3">
-                <p className="text-lg font-semibold">{skill}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section id="projects" className="py-20 ">
-        <div className="container mx-auto px-6">
-          <h3 className="text-4xl font-extrabold mb-12 text-center text-white">Featured Projects at ConcertCare</h3>
-          <div className="grid md:grid-cols-2 gap-12">
-            {projectDetails.map((project) => (
-              <div
-                key={project.name}
-                className="bg-white/10 backdrop-blur-lg rounded-xl overflow-hidden shadow-lg transform transition duration-500 hover:scale-105"
-              >
-                <div className="p-8 flex flex-col h-full">
-                  <div className="flex items-center mb-6">
-                    <img src={project.logoURL} alt={project.name} className="w-16 h-16 rounded-full mr-6" />
-                    <h4 className="text-2xl font-bold text-white">{project.name}</h4>
-                  </div>
-                  <p className="text-gray-300 mb-6 flex-grow">{project.describe}</p>
-                  <div className="mb-6">
-                    <span className="font-semibold text-white">My Role:</span>
-                    <span className="text-gray-300 ml-2">{project.myrole}</span>
-                  </div>
-                  <div className='flex'>
-                    <a 
-                      href={project.playstorelink}
-                      target="_blank"
-                      rel="noopener noreferrer" 
-                      className="inline-block underline bg-gray-500 hover:bg-gray-600 text-violet-600 font-bold py-3 px-5 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110"
-                    >
-                      View on Play Store
-                    </a>
-                  </div>
-
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -213,10 +237,10 @@ const Portfolio = () => {
           <div className="bg-white/10 backdrop-blur-md rounded-xl p-8 shadow-lg max-w-2xl mx-auto">
             <p className="text-xl mb-6 text-center">I'm dedicated to driving innovation at ConcertCare Private Limited. I'm always looking for ways to contribute more to our team and projects. Let's connect to discuss how we can enhance our collaborative efforts.</p>
             <div className="flex flex-wrap justify-center space-x-4">
-              <a href="mailto:yuvaraja.chi@concerti.com" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+              <a href="mailto:yuvaraja.chinnakaruppan@concertidc.com" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">
                 Outlook Mail
               </a>
-              <a href="https://teams.microsoft.com/l/chat/0/0?users=yuvaraja.chi@concerti.com" target="_blank" rel="noopener noreferrer" className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+              <a href="https://teams.microsoft.com/l/chat/0/0?users=yuvaraja.chinnakaruppan@concertidc.com" target="_blank" rel="noopener noreferrer" className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">
                 Microsoft Teams
               </a>
 
@@ -227,7 +251,7 @@ const Portfolio = () => {
 
       {/* Footer */}
       <footer className="bg-black/30 text-center py-6">
-        <p>&copy; 2024 Mahendran D. All rights reserved.</p>
+        <p>&copy; 2024 Yuvaraja C. All rights reserved.</p>
       </footer>
     </div>
   );

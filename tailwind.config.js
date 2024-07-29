@@ -5,6 +5,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Quicksand", "sans-serif"],
+        lora: ["Lora", 'serif'],
+        oxygen: ["Oxygen", "sans-serif"]
+      },
       keyframes: {
         pop: {
           '0%, 100%': { transform: 'scale(1)' },
